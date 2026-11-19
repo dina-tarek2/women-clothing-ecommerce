@@ -1,0 +1,207 @@
+/* -------------------------------------------------- */
+/*  Design Tokens - Used Globally Across the Project  */
+/* -------------------------------------------------- */
+
+/* Light values. "static" keeps every token in the output,
+   even when no Tailwind utility uses it, so the ds-* classes never lose a var(). */
+@theme static {
+  /* ---------- 01. Primitives ---------- */
+
+  --color-primary: #a85d6b; /* rose  */
+
+  --color-secondary-50: #fdf3ed;
+
+  --color-neutral: #1c1719;
+
+  --color-sand: #c2a183;
+
+  --color-sage: #8f9e8a;
+
+  /* Status */
+  --color-success-50: #e8f3ec;
+  --color-success-500: #15803d;
+  --color-warning-50: #fcf4e7;
+  --color-warning-500: #de8a0b;
+  --color-error-50: #f8e9e8;
+  --color-error-500: #b42318;
+  --color-info-50: #e9eefc;
+  --color-info-500: #1d4ed8;
+
+  /* Base */
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* ---------- 02. Semantic Tokens ---------- */
+
+  /* Button */
+  --color-button-primary: var(--color-primary-500);
+  --color-button-secondary: var(--color-neutral-100);
+  --color-button-danger: var(--color-error-500);
+
+  /* Text */
+  --color-text-primary: var(
+    --color-neutral-950
+  ); /* Headings, titles, emphasis */
+  --color-text-secondary: var(
+    --color-neutral-600
+  ); /* Body text, descriptions */
+  --color-text-tertiary: var(
+    --color-neutral-400
+  ); /* Captions, hints, meta data */
+  --color-text-subtext: var(--color-neutral-800);
+  --color-text-placeholder: #5c5c6c;
+  --color-text-body: #373741;
+
+  /* Surface */
+  --color-background: var(--color-neutral-50);
+  --color-card: var(--color-white);
+  --color-elevated: var(--color-white); /* White + shadow */
+
+  /* Border */
+  --color-border-subtle: var(--color-neutral-100);
+  --color-border-default: var(--color-neutral-200);
+  --color-border-strong: var(--color-neutral-400);
+  --color-border-focus: var(--color-primary-500);
+
+  /* Border widths */
+  --border-width-1: 1px;
+  --border-width-2: 2px;
+
+  /* Focus */
+  --focus-ring-color: var(--color-primary-500);
+  --focus-ring-width: 2px;
+
+  /* Interaction States */
+  --state-hover-opacity: 0.9;
+  --state-active-opacity: 0.8;
+  --state-disabled-opacity: 0.5;
+
+  /* Motion */
+  --motion-fast: 150ms;
+  --motion-normal: 300ms;
+  --ease-out: ease-out;
+
+  /* ---------- 03. Typography ---------- */
+
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* Font sizes: clamp(mobile 375px, fluid, web 1280px).
+     Each value grows from its mobile size to its Figma size.
+     Tablet (768px) falls on the fluid line, so it sits between mobile and web. */
+  --text-xs: 12px;
+  --text-sm: 14px;
+  /* --text-md: 16px; */
+
+  /* 11 → 12px */
+  /* --text-xs: clamp(0.6875rem, 0.6616rem + 0.1105vw, 0.75rem);  */
+
+  /* 13 → 14px */
+  /* --text-sm: clamp(0.8125rem, 0.7866rem + 0.1105vw, 0.875rem);  */
+
+  /* 15 → 16px */
+  --text-md: clamp(0.75rem, 0.65rem + 0.35vw, 1rem);
+
+  --text-lg: clamp(1rem, 0.948rem + 0.221vw, 1.125rem); /* 16 → 18px */
+  --text-xl: clamp(1.5rem, 1.345rem + 0.663vw, 1.875rem); /* 24 → 30px */
+  --text-2xl: clamp(1.75rem, 1.543rem + 0.884vw, 2.25rem); /* 28 → 36px */
+  --text-5xl: clamp(2.5rem, 1.982rem + 2.21vw, 3.75rem); /* 40 → 60px */
+
+  /* Line Heights */
+  --leading-tiny: 100%;
+  --leading-small: 120%;
+  --leading-tight: 130%;
+  --leading-normal: 140%;
+  --leading-relaxed: 160%;
+
+  /* Display: 60px / 120% / Bold */
+  --text-display: var(--text-5xl);
+  --text-display--line-height: var(--leading-small);
+  --text-display--font-weight: var(--font-weight-bold);
+
+  /* H1: 36px / 120% / Bold */
+  --text-h1: var(--text-2xl);
+  --text-h1--line-height: var(--leading-small);
+  --text-h1--font-weight: var(--font-weight-bold);
+
+  /* H2: 30px / 130% / Bold */
+  --text-h2: var(--text-xl);
+  --text-h2--line-height: var(--leading-tight);
+  --text-h2--font-weight: var(--font-weight-bold);
+
+  /* Body L: 18px / 160% / Regular */
+  --text-body-lg: var(--text-lg);
+  --text-body-lg--line-height: var(--leading-relaxed);
+  --text-body-lg--font-weight: var(--font-weight-regular);
+
+  /* Body M: 16px / 160% / Regular */
+  --text-body-md: var(--text-md);
+  --text-body-md--line-height: var(--leading-relaxed);
+  --text-body-md--font-weight: var(--font-weight-regular);
+
+  /* Label / Small: 14px / 100% / SemiBold */
+  --text-small: var(--text-sm);
+  --text-small--line-height: var(--leading-tiny);
+  --text-small--font-weight: var(--font-weight-semibold);
+
+  /* Caption: 12px / 140% / Medium */
+  --text-caption: var(--text-xs);
+  --text-caption--line-height: var(--leading-normal);
+  --text-caption--font-weight: var(--font-weight-medium);
+
+  /* ---------- 04. Spacing, Radius & Shadows ---------- */
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+
+  /* Border Radius */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 10px;
+  --radius-2xl: 12px;
+  --radius-3xl: 16px;
+  --radius-pill: 999px;
+
+  /* Shadows */
+  --shadow-subtle:
+    0px 1px 2px rgba(0, 0, 0, 0.03), 0px 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-default: 0px 0px 4px rgba(0, 0, 0, 0.1);
+  --shadow-elevated:
+    0px 4px 6px -2px rgba(15, 23, 42, 0.04),
+    0px 10px 15px -3px rgba(15, 23, 42, 0.08);
+}
+
+/* Dark Variant: only on <html class="dark">.
+   Same semantic names, values from existing primitives. */
+:root.dark {
+  --color-button-secondary: var(--color-neutral-800);
+
+  --color-text-primary: var(--color-neutral-50);
+  --color-text-secondary: var(--color-neutral-300);
+  --color-text-tertiary: var(--color-neutral-500);
+  --color-text-placeholder: var(--color-neutral-500);
+
+  --color-background: var(--color-neutral-950);
+  --color-card: var(--color-neutral-900);
+  --color-elevated: var(--color-neutral-900);
+
+  --color-border-subtle: var(--color-neutral-900);
+  --color-border-default: var(--color-neutral-800);
+  --color-border-strong: var(--color-neutral-600);
+  --color-border-focus: var(--color-primary-400);
+
+  --focus-ring-color: var(--color-primary-400);
+}
